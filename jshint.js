@@ -840,7 +840,7 @@ var JSHINT = (function () {
         }, a, b, c, d);
     }
 
-
+var inmultilinestr=0;
 
 // lexical analysis and token construction
 
@@ -858,6 +858,19 @@ var JSHINT = (function () {
 
             character = 1;
             s = lines[line];
+
+if (inmultilinestr)
+  s = "'" + s;
+
+if (s.charAt(s.length-1)==='\\')
+{
+  s=s.slice(0,s.length-1)+"'+";
+  //console.log (['++++0',s,s.charAt(s.length-1)])
+  inmultilinestr=1
+}
+else
+  inmultilinestr=0
+
             line += 1;
             at = s.search(/ \t/);
 
