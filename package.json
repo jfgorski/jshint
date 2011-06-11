@@ -1,5 +1,4 @@
 {
   "name": "jshint-multiline",
-  "version": "0.2.2.multiline",
-  "description": "a cli for jshint"
+  "version": "0.2.2",
 }
